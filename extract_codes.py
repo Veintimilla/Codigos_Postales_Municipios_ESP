@@ -39,9 +39,9 @@ class ExtractPostalCodes():
                 province_df.rename(columns={0: "data"}, inplace=True)
                 province_df['codigo_postal'] = province_df["data"].apply(lambda x: x.split(" ")[0])
                 province_df['nombre'] = province_df['data'].apply(lambda x: " ".join(x.split(" ")[1:]))
-                province_df['nombre'] = province_df['nombre'].str.replace("El código varía según la calle", "")
+                province_df['nombre'] = province_df['nombre'].str.replace(" El código varía según la calle", "")
                 province_df.drop(['data'], axis=1, inplace=True)
-                province_df['provincia'] = key
+                province_df['provincia'] = key.split("XXX ")[1]
                 if final_df is None:
                     final_df = province_df
                 else:
