@@ -53,6 +53,6 @@ class ExtractPostalCodes():
         finally:
             self.driver.close()
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # https://es.stackoverflow.com/questions/32165/qu%C3%A9-es-if-name-main
     bot = ExtractPostalCodes()
     bot.run()
